@@ -5,7 +5,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -24,10 +23,6 @@ public class NetworkAssign implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    
-    @Column(name = "auto_id", unique = true)
-    private Long autoId;
 
     @Column(name = "ip_address")
     private String ipAddress;
@@ -74,19 +69,6 @@ public class NetworkAssign implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAutoId() {
-        return autoId;
-    }
-
-    public NetworkAssign autoId(Long autoId) {
-        this.autoId = autoId;
-        return this;
-    }
-
-    public void setAutoId(Long autoId) {
-        this.autoId = autoId;
     }
 
     public String getIpAddress() {
@@ -267,7 +249,6 @@ public class NetworkAssign implements Serializable {
     public String toString() {
         return "NetworkAssign{" +
             "id=" + getId() +
-            ", autoId=" + getAutoId() +
             ", ipAddress='" + getIpAddress() + "'" +
             ", departmentId=" + getDepartmentId() +
             ", departmentValue='" + getDepartmentValue() + "'" +

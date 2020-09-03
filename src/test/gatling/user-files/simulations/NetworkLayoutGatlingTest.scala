@@ -72,7 +72,6 @@ class NetworkLayoutGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "autoId":null
                 , "menuId":null
                 , "ipAdderssType":"SAMPLE_TEXT"
                 , "ipType":"SAMPLE_TEXT"

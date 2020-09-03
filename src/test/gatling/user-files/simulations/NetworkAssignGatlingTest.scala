@@ -72,7 +72,6 @@ class NetworkAssignGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "autoId":null
                 , "ipAddress":"SAMPLE_TEXT"
                 , "departmentId":"0"
                 , "departmentValue":"SAMPLE_TEXT"

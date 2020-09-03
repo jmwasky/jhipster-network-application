@@ -1,6 +1,5 @@
 package com.shsnc.myapp.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import com.shsnc.myapp.domain.enumeration.AllocateStatus;
 
@@ -10,9 +9,6 @@ import com.shsnc.myapp.domain.enumeration.AllocateStatus;
 public class NetworkAssignDTO implements Serializable {
     
     private Long id;
-
-    
-    private Long autoId;
 
     private String ipAddress;
 
@@ -45,14 +41,6 @@ public class NetworkAssignDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAutoId() {
-        return autoId;
-    }
-
-    public void setAutoId(Long autoId) {
-        this.autoId = autoId;
     }
 
     public String getIpAddress() {
@@ -173,7 +161,6 @@ public class NetworkAssignDTO implements Serializable {
     public String toString() {
         return "NetworkAssignDTO{" +
             "id=" + getId() +
-            ", autoId=" + getAutoId() +
             ", ipAddress='" + getIpAddress() + "'" +
             ", departmentId=" + getDepartmentId() +
             ", departmentValue='" + getDepartmentValue() + "'" +

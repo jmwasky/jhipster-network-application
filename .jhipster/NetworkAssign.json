@@ -2,11 +2,6 @@
   "name": "NetworkAssign",
   "fields": [
     {
-      "fieldName": "autoId",
-      "fieldType": "Long",
-      "fieldValidateRules": ["unique"]
-    },
-    {
       "fieldName": "ipAddress",
       "fieldType": "String"
     },

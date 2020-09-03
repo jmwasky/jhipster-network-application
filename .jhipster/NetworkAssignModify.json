@@ -2,11 +2,6 @@
   "name": "NetworkAssignModify",
   "fields": [
     {
-      "fieldName": "autoId",
-      "fieldType": "Long",
-      "fieldValidateRules": ["unique"]
-    },
-    {
       "fieldName": "title",
       "fieldType": "String"
     },

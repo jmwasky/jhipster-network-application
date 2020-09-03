@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -26,10 +25,6 @@ public class NetworkLayout implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    
-    @Column(name = "auto_id", unique = true)
-    private Long autoId;
 
     @Column(name = "menu_id")
     private Long menuId;
@@ -83,19 +78,6 @@ public class NetworkLayout implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAutoId() {
-        return autoId;
-    }
-
-    public NetworkLayout autoId(Long autoId) {
-        this.autoId = autoId;
-        return this;
-    }
-
-    public void setAutoId(Long autoId) {
-        this.autoId = autoId;
     }
 
     public Long getMenuId() {
@@ -326,7 +308,6 @@ public class NetworkLayout implements Serializable {
     public String toString() {
         return "NetworkLayout{" +
             "id=" + getId() +
-            ", autoId=" + getAutoId() +
             ", menuId=" + getMenuId() +
             ", ipAdderssType='" + getIpAdderssType() + "'" +
             ", ipType='" + getIpType() + "'" +

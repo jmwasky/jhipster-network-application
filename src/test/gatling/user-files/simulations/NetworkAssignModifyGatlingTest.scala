@@ -72,7 +72,6 @@ class NetworkAssignModifyGatlingTest extends Simulation {
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
-                , "autoId":null
                 , "title":"SAMPLE_TEXT"
                 , "updateTime":"0"
                 , "modifySource":"ITSM"

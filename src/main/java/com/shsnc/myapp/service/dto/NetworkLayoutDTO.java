@@ -1,6 +1,5 @@
 package com.shsnc.myapp.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import com.shsnc.myapp.domain.enumeration.StartStatus;
@@ -11,9 +10,6 @@ import com.shsnc.myapp.domain.enumeration.StartStatus;
 public class NetworkLayoutDTO implements Serializable {
     
     private Long id;
-
-    
-    private Long autoId;
 
     private Long menuId;
 
@@ -46,14 +42,6 @@ public class NetworkLayoutDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAutoId() {
-        return autoId;
-    }
-
-    public void setAutoId(Long autoId) {
-        this.autoId = autoId;
     }
 
     public Long getMenuId() {
@@ -174,7 +162,6 @@ public class NetworkLayoutDTO implements Serializable {
     public String toString() {
         return "NetworkLayoutDTO{" +
             "id=" + getId() +
-            ", autoId=" + getAutoId() +
             ", menuId=" + getMenuId() +
             ", ipAdderssType='" + getIpAdderssType() + "'" +
             ", ipType='" + getIpType() + "'" +

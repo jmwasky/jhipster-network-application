@@ -34,9 +34,6 @@ import com.shsnc.myapp.domain.enumeration.StartStatus;
 @WithMockUser
 public class NetworkLayoutResourceIT {
 
-    private static final Long DEFAULT_AUTO_ID = 1L;
-    private static final Long UPDATED_AUTO_ID = 2L;
-
     private static final Long DEFAULT_MENU_ID = 1L;
     private static final Long UPDATED_MENU_ID = 2L;
 
@@ -98,7 +95,6 @@ public class NetworkLayoutResourceIT {
      */
     public static NetworkLayout createEntity(EntityManager em) {
         NetworkLayout networkLayout = new NetworkLayout()
-            .autoId(DEFAULT_AUTO_ID)
             .menuId(DEFAULT_MENU_ID)
             .ipAdderssType(DEFAULT_IP_ADDERSS_TYPE)
             .ipType(DEFAULT_IP_TYPE)
@@ -121,7 +117,6 @@ public class NetworkLayoutResourceIT {
      */
     public static NetworkLayout createUpdatedEntity(EntityManager em) {
         NetworkLayout networkLayout = new NetworkLayout()
-            .autoId(UPDATED_AUTO_ID)
             .menuId(UPDATED_MENU_ID)
             .ipAdderssType(UPDATED_IP_ADDERSS_TYPE)
             .ipType(UPDATED_IP_TYPE)
@@ -157,7 +152,6 @@ public class NetworkLayoutResourceIT {
         List<NetworkLayout> networkLayoutList = networkLayoutRepository.findAll();
         assertThat(networkLayoutList).hasSize(databaseSizeBeforeCreate + 1);
         NetworkLayout testNetworkLayout = networkLayoutList.get(networkLayoutList.size() - 1);
-        assertThat(testNetworkLayout.getAutoId()).isEqualTo(DEFAULT_AUTO_ID);
         assertThat(testNetworkLayout.getMenuId()).isEqualTo(DEFAULT_MENU_ID);
         assertThat(testNetworkLayout.getIpAdderssType()).isEqualTo(DEFAULT_IP_ADDERSS_TYPE);
         assertThat(testNetworkLayout.getIpType()).isEqualTo(DEFAULT_IP_TYPE);
@@ -204,7 +198,6 @@ public class NetworkLayoutResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(networkLayout.getId().intValue())))
-            .andExpect(jsonPath("$.[*].autoId").value(hasItem(DEFAULT_AUTO_ID.intValue())))
             .andExpect(jsonPath("$.[*].menuId").value(hasItem(DEFAULT_MENU_ID.intValue())))
             .andExpect(jsonPath("$.[*].ipAdderssType").value(hasItem(DEFAULT_IP_ADDERSS_TYPE)))
             .andExpect(jsonPath("$.[*].ipType").value(hasItem(DEFAULT_IP_TYPE)))
@@ -230,7 +223,6 @@ public class NetworkLayoutResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(networkLayout.getId().intValue()))
-            .andExpect(jsonPath("$.autoId").value(DEFAULT_AUTO_ID.intValue()))
             .andExpect(jsonPath("$.menuId").value(DEFAULT_MENU_ID.intValue()))
             .andExpect(jsonPath("$.ipAdderssType").value(DEFAULT_IP_ADDERSS_TYPE))
             .andExpect(jsonPath("$.ipType").value(DEFAULT_IP_TYPE))
@@ -265,7 +257,6 @@ public class NetworkLayoutResourceIT {
         // Disconnect from session so that the updates on updatedNetworkLayout are not directly saved in db
         em.detach(updatedNetworkLayout);
         updatedNetworkLayout
-            .autoId(UPDATED_AUTO_ID)
             .menuId(UPDATED_MENU_ID)
             .ipAdderssType(UPDATED_IP_ADDERSS_TYPE)
             .ipType(UPDATED_IP_TYPE)
@@ -289,7 +280,6 @@ public class NetworkLayoutResourceIT {
         List<NetworkLayout> networkLayoutList = networkLayoutRepository.findAll();
         assertThat(networkLayoutList).hasSize(databaseSizeBeforeUpdate);
         NetworkLayout testNetworkLayout = networkLayoutList.get(networkLayoutList.size() - 1);
-        assertThat(testNetworkLayout.getAutoId()).isEqualTo(UPDATED_AUTO_ID);
         assertThat(testNetworkLayout.getMenuId()).isEqualTo(UPDATED_MENU_ID);
         assertThat(testNetworkLayout.getIpAdderssType()).isEqualTo(UPDATED_IP_ADDERSS_TYPE);
         assertThat(testNetworkLayout.getIpType()).isEqualTo(UPDATED_IP_TYPE);

@@ -2,11 +2,6 @@
   "name": "NetworkLayout",
   "fields": [
     {
-      "fieldName": "autoId",
-      "fieldType": "Long",
-      "fieldValidateRules": ["unique"]
-    },
-    {
       "fieldName": "menuId",
       "fieldType": "Long"
     },

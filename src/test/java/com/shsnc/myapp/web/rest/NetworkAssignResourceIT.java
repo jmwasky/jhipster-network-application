@@ -33,9 +33,6 @@ import com.shsnc.myapp.domain.enumeration.AllocateStatus;
 @WithMockUser
 public class NetworkAssignResourceIT {
 
-    private static final Long DEFAULT_AUTO_ID = 1L;
-    private static final Long UPDATED_AUTO_ID = 2L;
-
     private static final String DEFAULT_IP_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_IP_ADDRESS = "BBBBBBBBBB";
 
@@ -94,7 +91,6 @@ public class NetworkAssignResourceIT {
      */
     public static NetworkAssign createEntity(EntityManager em) {
         NetworkAssign networkAssign = new NetworkAssign()
-            .autoId(DEFAULT_AUTO_ID)
             .ipAddress(DEFAULT_IP_ADDRESS)
             .departmentId(DEFAULT_DEPARTMENT_ID)
             .departmentValue(DEFAULT_DEPARTMENT_VALUE)
@@ -116,7 +112,6 @@ public class NetworkAssignResourceIT {
      */
     public static NetworkAssign createUpdatedEntity(EntityManager em) {
         NetworkAssign networkAssign = new NetworkAssign()
-            .autoId(UPDATED_AUTO_ID)
             .ipAddress(UPDATED_IP_ADDRESS)
             .departmentId(UPDATED_DEPARTMENT_ID)
             .departmentValue(UPDATED_DEPARTMENT_VALUE)
@@ -151,7 +146,6 @@ public class NetworkAssignResourceIT {
         List<NetworkAssign> networkAssignList = networkAssignRepository.findAll();
         assertThat(networkAssignList).hasSize(databaseSizeBeforeCreate + 1);
         NetworkAssign testNetworkAssign = networkAssignList.get(networkAssignList.size() - 1);
-        assertThat(testNetworkAssign.getAutoId()).isEqualTo(DEFAULT_AUTO_ID);
         assertThat(testNetworkAssign.getIpAddress()).isEqualTo(DEFAULT_IP_ADDRESS);
         assertThat(testNetworkAssign.getDepartmentId()).isEqualTo(DEFAULT_DEPARTMENT_ID);
         assertThat(testNetworkAssign.getDepartmentValue()).isEqualTo(DEFAULT_DEPARTMENT_VALUE);
@@ -197,7 +191,6 @@ public class NetworkAssignResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(networkAssign.getId().intValue())))
-            .andExpect(jsonPath("$.[*].autoId").value(hasItem(DEFAULT_AUTO_ID.intValue())))
             .andExpect(jsonPath("$.[*].ipAddress").value(hasItem(DEFAULT_IP_ADDRESS)))
             .andExpect(jsonPath("$.[*].departmentId").value(hasItem(DEFAULT_DEPARTMENT_ID)))
             .andExpect(jsonPath("$.[*].departmentValue").value(hasItem(DEFAULT_DEPARTMENT_VALUE)))
@@ -222,7 +215,6 @@ public class NetworkAssignResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(networkAssign.getId().intValue()))
-            .andExpect(jsonPath("$.autoId").value(DEFAULT_AUTO_ID.intValue()))
             .andExpect(jsonPath("$.ipAddress").value(DEFAULT_IP_ADDRESS))
             .andExpect(jsonPath("$.departmentId").value(DEFAULT_DEPARTMENT_ID))
             .andExpect(jsonPath("$.departmentValue").value(DEFAULT_DEPARTMENT_VALUE))
@@ -256,7 +248,6 @@ public class NetworkAssignResourceIT {
         // Disconnect from session so that the updates on updatedNetworkAssign are not directly saved in db
         em.detach(updatedNetworkAssign);
         updatedNetworkAssign
-            .autoId(UPDATED_AUTO_ID)
             .ipAddress(UPDATED_IP_ADDRESS)
             .departmentId(UPDATED_DEPARTMENT_ID)
             .departmentValue(UPDATED_DEPARTMENT_VALUE)
@@ -279,7 +270,6 @@ public class NetworkAssignResourceIT {
         List<NetworkAssign> networkAssignList = networkAssignRepository.findAll();
         assertThat(networkAssignList).hasSize(databaseSizeBeforeUpdate);
         NetworkAssign testNetworkAssign = networkAssignList.get(networkAssignList.size() - 1);
-        assertThat(testNetworkAssign.getAutoId()).isEqualTo(UPDATED_AUTO_ID);
         assertThat(testNetworkAssign.getIpAddress()).isEqualTo(UPDATED_IP_ADDRESS);
         assertThat(testNetworkAssign.getDepartmentId()).isEqualTo(UPDATED_DEPARTMENT_ID);
         assertThat(testNetworkAssign.getDepartmentValue()).isEqualTo(UPDATED_DEPARTMENT_VALUE);

@@ -18,7 +18,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -52,7 +51,7 @@ public class NetworkAssignResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/network-assigns")
-    public ResponseEntity<NetworkAssignDTO> createNetworkAssign(@Valid @RequestBody NetworkAssignDTO networkAssignDTO) throws URISyntaxException {
+    public ResponseEntity<NetworkAssignDTO> createNetworkAssign(@RequestBody NetworkAssignDTO networkAssignDTO) throws URISyntaxException {
         log.debug("REST request to save NetworkAssign : {}", networkAssignDTO);
         if (networkAssignDTO.getId() != null) {
             throw new BadRequestAlertException("A new networkAssign cannot already have an ID", ENTITY_NAME, "idexists");
@@ -73,7 +72,7 @@ public class NetworkAssignResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/network-assigns")
-    public ResponseEntity<NetworkAssignDTO> updateNetworkAssign(@Valid @RequestBody NetworkAssignDTO networkAssignDTO) throws URISyntaxException {
+    public ResponseEntity<NetworkAssignDTO> updateNetworkAssign(@RequestBody NetworkAssignDTO networkAssignDTO) throws URISyntaxException {
         log.debug("REST request to update NetworkAssign : {}", networkAssignDTO);
         if (networkAssignDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

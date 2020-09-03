@@ -18,7 +18,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -52,7 +51,7 @@ public class NetworkLayoutResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/network-layouts")
-    public ResponseEntity<NetworkLayoutDTO> createNetworkLayout(@Valid @RequestBody NetworkLayoutDTO networkLayoutDTO) throws URISyntaxException {
+    public ResponseEntity<NetworkLayoutDTO> createNetworkLayout(@RequestBody NetworkLayoutDTO networkLayoutDTO) throws URISyntaxException {
         log.debug("REST request to save NetworkLayout : {}", networkLayoutDTO);
         if (networkLayoutDTO.getId() != null) {
             throw new BadRequestAlertException("A new networkLayout cannot already have an ID", ENTITY_NAME, "idexists");
@@ -73,7 +72,7 @@ public class NetworkLayoutResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/network-layouts")
-    public ResponseEntity<NetworkLayoutDTO> updateNetworkLayout(@Valid @RequestBody NetworkLayoutDTO networkLayoutDTO) throws URISyntaxException {
+    public ResponseEntity<NetworkLayoutDTO> updateNetworkLayout(@RequestBody NetworkLayoutDTO networkLayoutDTO) throws URISyntaxException {
         log.debug("REST request to update NetworkLayout : {}", networkLayoutDTO);
         if (networkLayoutDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

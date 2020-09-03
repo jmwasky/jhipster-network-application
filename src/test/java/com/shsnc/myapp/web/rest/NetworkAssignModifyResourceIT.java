@@ -36,9 +36,6 @@ import com.shsnc.myapp.domain.enumeration.ModifySource;
 @WithMockUser
 public class NetworkAssignModifyResourceIT {
 
-    private static final Long DEFAULT_AUTO_ID = 1L;
-    private static final Long UPDATED_AUTO_ID = 2L;
-
     private static final String DEFAULT_TITLE = "AAAAAAAAAA";
     private static final String UPDATED_TITLE = "BBBBBBBBBB";
 
@@ -106,7 +103,6 @@ public class NetworkAssignModifyResourceIT {
      */
     public static NetworkAssignModify createEntity(EntityManager em) {
         NetworkAssignModify networkAssignModify = new NetworkAssignModify()
-            .autoId(DEFAULT_AUTO_ID)
             .title(DEFAULT_TITLE)
             .updateTime(DEFAULT_UPDATE_TIME)
             .modifySource(DEFAULT_MODIFY_SOURCE)
@@ -131,7 +127,6 @@ public class NetworkAssignModifyResourceIT {
      */
     public static NetworkAssignModify createUpdatedEntity(EntityManager em) {
         NetworkAssignModify networkAssignModify = new NetworkAssignModify()
-            .autoId(UPDATED_AUTO_ID)
             .title(UPDATED_TITLE)
             .updateTime(UPDATED_UPDATE_TIME)
             .modifySource(UPDATED_MODIFY_SOURCE)
@@ -169,7 +164,6 @@ public class NetworkAssignModifyResourceIT {
         List<NetworkAssignModify> networkAssignModifyList = networkAssignModifyRepository.findAll();
         assertThat(networkAssignModifyList).hasSize(databaseSizeBeforeCreate + 1);
         NetworkAssignModify testNetworkAssignModify = networkAssignModifyList.get(networkAssignModifyList.size() - 1);
-        assertThat(testNetworkAssignModify.getAutoId()).isEqualTo(DEFAULT_AUTO_ID);
         assertThat(testNetworkAssignModify.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testNetworkAssignModify.getUpdateTime()).isEqualTo(DEFAULT_UPDATE_TIME);
         assertThat(testNetworkAssignModify.getModifySource()).isEqualTo(DEFAULT_MODIFY_SOURCE);
@@ -218,7 +212,6 @@ public class NetworkAssignModifyResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(networkAssignModify.getId().intValue())))
-            .andExpect(jsonPath("$.[*].autoId").value(hasItem(DEFAULT_AUTO_ID.intValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].updateTime").value(hasItem(DEFAULT_UPDATE_TIME)))
             .andExpect(jsonPath("$.[*].modifySource").value(hasItem(DEFAULT_MODIFY_SOURCE.toString())))
@@ -246,7 +239,6 @@ public class NetworkAssignModifyResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(networkAssignModify.getId().intValue()))
-            .andExpect(jsonPath("$.autoId").value(DEFAULT_AUTO_ID.intValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.updateTime").value(DEFAULT_UPDATE_TIME))
             .andExpect(jsonPath("$.modifySource").value(DEFAULT_MODIFY_SOURCE.toString()))
@@ -283,7 +275,6 @@ public class NetworkAssignModifyResourceIT {
         // Disconnect from session so that the updates on updatedNetworkAssignModify are not directly saved in db
         em.detach(updatedNetworkAssignModify);
         updatedNetworkAssignModify
-            .autoId(UPDATED_AUTO_ID)
             .title(UPDATED_TITLE)
             .updateTime(UPDATED_UPDATE_TIME)
             .modifySource(UPDATED_MODIFY_SOURCE)
@@ -309,7 +300,6 @@ public class NetworkAssignModifyResourceIT {
         List<NetworkAssignModify> networkAssignModifyList = networkAssignModifyRepository.findAll();
         assertThat(networkAssignModifyList).hasSize(databaseSizeBeforeUpdate);
         NetworkAssignModify testNetworkAssignModify = networkAssignModifyList.get(networkAssignModifyList.size() - 1);
-        assertThat(testNetworkAssignModify.getAutoId()).isEqualTo(UPDATED_AUTO_ID);
         assertThat(testNetworkAssignModify.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testNetworkAssignModify.getUpdateTime()).isEqualTo(UPDATED_UPDATE_TIME);
         assertThat(testNetworkAssignModify.getModifySource()).isEqualTo(UPDATED_MODIFY_SOURCE);

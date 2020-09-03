@@ -1,6 +1,5 @@
 package com.shsnc.myapp.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import com.shsnc.myapp.domain.enumeration.ModifySource;
@@ -12,9 +11,6 @@ import com.shsnc.myapp.domain.enumeration.ModifyType;
 public class NetworkAssignModifyDTO implements Serializable {
     
     private Long id;
-
-    
-    private Long autoId;
 
     private String title;
 
@@ -53,14 +49,6 @@ public class NetworkAssignModifyDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAutoId() {
-        return autoId;
-    }
-
-    public void setAutoId(Long autoId) {
-        this.autoId = autoId;
     }
 
     public String getTitle() {
@@ -205,7 +193,6 @@ public class NetworkAssignModifyDTO implements Serializable {
     public String toString() {
         return "NetworkAssignModifyDTO{" +
             "id=" + getId() +
-            ", autoId=" + getAutoId() +
             ", title='" + getTitle() + "'" +
             ", updateTime=" + getUpdateTime() +
             ", modifySource='" + getModifySource() + "'" +
