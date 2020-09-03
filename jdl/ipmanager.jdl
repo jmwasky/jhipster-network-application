@@ -3,7 +3,6 @@ enum StartStatus {
 }
 
 entity NetworkLayout {
-    autoId Long unique
     menuId Long
     ipAdderssType String
     ipType String
@@ -22,7 +21,6 @@ enum AllocateStatus {
     ENABLE, DISABLE
 }
 entity NetworkAssign {
-    autoId Long unique
     ipAddress String
     departmentId Integer
     departmentValue String
@@ -47,7 +45,6 @@ enum ModifySource {
     ITSM, IPMANAGER
 }
 entity NetworkAssignModify {
-    autoId Long unique
     title String
     updateTime Integer
     modifySource ModifySource
