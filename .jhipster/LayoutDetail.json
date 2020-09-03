@@ -1,0 +1,86 @@
+{
+  "name": "LayoutDetail",
+  "fields": [
+    {
+      "fieldName": "autoId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "menuId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ipAdderssType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ipType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "netmask",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "networkName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "networkDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "networkRange",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "gatewayAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vlanId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dns",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StartStatus",
+      "fieldValues": "ENABLE,DISABLE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assignDetail",
+      "otherEntityRelationshipName": "layoutDetail",
+      "relationshipName": "assignDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assignModifyDetail",
+      "otherEntityRelationshipName": "layoutDetail",
+      "relationshipName": "modifyDetails"
+    }
+  ],
+  "changelogDate": "20200903101924",
+  "entityTableName": "layout_detail",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterNetworkApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterNetworkApplication",
+  "angularJSSuffix": "mySuffix"
+}

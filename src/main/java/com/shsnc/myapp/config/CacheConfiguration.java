@@ -42,6 +42,11 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, com.shsnc.myapp.domain.NetworkLayout.class.getName());
+            createCache(cm, com.shsnc.myapp.domain.NetworkLayout.class.getName() + ".networkAssigns");
+            createCache(cm, com.shsnc.myapp.domain.NetworkLayout.class.getName() + ".networkAssignModifies");
+            createCache(cm, com.shsnc.myapp.domain.NetworkAssign.class.getName());
+            createCache(cm, com.shsnc.myapp.domain.NetworkAssignModify.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

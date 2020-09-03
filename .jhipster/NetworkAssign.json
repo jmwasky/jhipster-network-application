@@ -1,0 +1,77 @@
+{
+  "name": "NetworkAssign",
+  "fields": [
+    {
+      "fieldName": "autoId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "ipAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departmentId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "departmentValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "systemId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "systemValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "managerValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceIds",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "allocateStatus",
+      "fieldType": "AllocateStatus",
+      "fieldValues": "ENABLE,DISABLE"
+    },
+    {
+      "fieldName": "ipDescribe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "networkLayout",
+      "otherEntityRelationshipName": "networkAssign",
+      "relationshipName": "networkLayout",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200903102843",
+  "entityTableName": "network_assign",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterNetworkApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterNetworkApplication",
+  "angularJSSuffix": "mySuffix"
+}

@@ -1,0 +1,91 @@
+{
+  "name": "AssignModifyDetail",
+  "fields": [
+    {
+      "fieldName": "autoId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifySource",
+      "fieldType": "ModifySource",
+      "fieldValues": "ITSM,IPMANAGER"
+    },
+    {
+      "fieldName": "externalId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modifyType",
+      "fieldType": "ModifyType",
+      "fieldValues": "IPAPPLY,IPMODIFY,IPRECOVERY"
+    },
+    {
+      "fieldName": "modifiedCount",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "modifyStatus",
+      "fieldType": "ModifySource",
+      "fieldValues": "ITSM,IPMANAGER"
+    },
+    {
+      "fieldName": "orderDetailId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "managerId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "managerValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "systemId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "systemValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departmentId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "departmentValue",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "layoutDetail",
+      "otherEntityRelationshipName": "modifyDetails",
+      "relationshipName": "layoutDetail",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200903102124",
+  "entityTableName": "assign_modify_detail",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "jhipsterNetworkApplication",
+  "applications": "*",
+  "microserviceName": "jhipsterNetworkApplication",
+  "angularJSSuffix": "mySuffix"
+}
