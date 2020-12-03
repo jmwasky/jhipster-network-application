@@ -58,6 +58,19 @@ public class NetworkLayoutService {
             .map(networkLayoutMapper::toDto);
     }
 
+    /**
+     * Get all the networkLayouts.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Transactional(readOnly = true)
+    public Page<NetworkLayoutDTO> findAllByCondition(Pageable pageable) {
+        log.debug("Request to get all NetworkLayouts");
+        return networkLayoutRepository.findAll(pageable)
+            .map(networkLayoutMapper::toDto);
+    }
+
 
     /**
      * Get one networkLayout by id.
